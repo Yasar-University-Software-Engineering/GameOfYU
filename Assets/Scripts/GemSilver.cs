@@ -11,8 +11,9 @@ public class GemSilver : MonoBehaviour
 
     void OnTriggerEnter()
     {
+        GlobalScore.currentScore += 1;
         Destroy(gameObject);
         collectSound.Play();
-        GlobalScore.currentScore += 1000;
+        
     }
 }
