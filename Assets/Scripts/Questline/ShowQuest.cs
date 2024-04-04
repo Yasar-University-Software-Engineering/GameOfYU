@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 public class ShowQuest : MonoBehaviour
 {
     public GameObject questUI;
+    public GameObject questUIBackground;
     private int collision = 0;
     public AudioClip sound;
     private AudioSource audio;

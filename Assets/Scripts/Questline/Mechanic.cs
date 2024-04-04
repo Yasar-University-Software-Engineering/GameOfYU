@@ -13,16 +13,18 @@ public class Mechanic : MonoBehaviour
     private bool isTriggeredEnter = false;
     private bool isTriggeredExit = false;
     public GameObject dialogueBox;
+    private float audioLength;
 
 
 
     void OnTriggerEnter(Collider other)
     {
         if(!isTriggeredEnter)
-        { 
-        GlobalScore.currentScore += 1;
-        audio.Play();
-            audio1.PlayDelayed(3);
+        {
+            float audioLength = audio.clip.length;
+            GlobalScore.currentScore += 1;
+            audio.Play();
+            audio1.PlayDelayed(audioLength);
             isTriggeredEnter = true;
             }
       
