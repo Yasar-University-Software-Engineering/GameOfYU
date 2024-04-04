@@ -69,7 +69,7 @@ public class ShowQuest : MonoBehaviour
     {
         
         if (GlobalScore.currentScore == 1)
-        { questUI.GetComponent<TMP_Text>().text = " check the tower for more information";
+        { questUI.GetComponent<TMP_Text>().text = " ask the citizen if he saw anything";
             Arrow_waypoints.target = tower.transform; }
         if (GlobalScore.currentScore == 2)
         { questUI.GetComponent<TMP_Text>().text = " you have to finish 3 quest to reveal your tires "; }
@@ -78,12 +78,12 @@ public class ShowQuest : MonoBehaviour
             arrowObject.SetActive(false);
         }
         if (GlobalScore.currentScore == 9)
-        { questUI.GetComponent<TMP_Text>().text = " find the giant lollypop ";
+        { questUI.GetComponent<TMP_Text>().text = " bring all the trash to the garbage man ";
             Arrow_waypoints.target = lollypop.transform;
             arrowObject.SetActive(true);
         }
         if (GlobalScore.currentScore == 10)
-        { questUI.GetComponent<TMP_Text>().text = " DANCE !! ";
+        { questUI.GetComponent<TMP_Text>().text = " talk to the garbage man ";
             
         }
         if (GlobalScore.currentScore == 11)

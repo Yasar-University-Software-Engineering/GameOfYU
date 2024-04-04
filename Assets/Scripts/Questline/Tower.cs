@@ -18,7 +18,7 @@ public class Tower : MonoBehaviour
         if (!isTriggeredEnter)
         {
             float audioLength = audio.clip.length;
-            GlobalScore.currentScore += 1;
+            GlobalScore.currentScore++;
             audio.Play();
             audio1.PlayDelayed(audioLength);
             isTriggeredEnter = true;
