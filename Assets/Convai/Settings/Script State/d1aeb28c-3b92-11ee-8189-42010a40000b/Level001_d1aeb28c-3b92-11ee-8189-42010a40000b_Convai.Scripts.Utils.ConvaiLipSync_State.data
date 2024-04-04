@@ -1,1 +1,3 @@
-{"faceModelType":3,"BlendshapeType":2,"HeadSkinnedMeshRenderer":{"instanceID":-19496},"TeethSkinnedMeshRenderer":{"instanceID":-19932},"TongueSkinnedMeshRenderer":{"instanceID":-19938},"jawBone":{"instanceID":-19770},"tongueBone":{"instanceID":-19778},"tongueBoneOffset":{"x":-0.009999999776482582,"y":0.014999999664723874,"z":0.0},"firstIndex":0,"isCharacterTalking":false}
+
+{"faceModelType":3,"BlendshapeType":2,"HeadSkinnedMeshRenderer":{"instanceID":-55588},"TeethSkinnedMeshRenderer":{"instanceID":-56024},"TongueSkinnedMeshRenderer":{"instanceID":-56030},"jawBone":{"instanceID":-55862},"tongueBone":{"instanceID":-55870},"tongueBoneOffset":{"x":-0.009999999776482582,"y":0.014999999664723874,"z":0.0},"firstIndex":0,"isCharacterTalking":false}
+
