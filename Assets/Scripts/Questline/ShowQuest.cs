@@ -23,6 +23,10 @@ public class ShowQuest : MonoBehaviour
     public GameObject trashbags;
     public GameObject lollypop;
     public GameObject mechanic;
+    private bool isTriggerExit;
+    public GameObject arrowObject;
+
+
 
     private bool alreadyPlayed = false;
 
@@ -31,6 +35,8 @@ public class ShowQuest : MonoBehaviour
         questUI.GetComponent<TMP_Text>().text = "find the missing tires";
         audio = GetComponent<AudioSource>();
         questUI.SetActive(false);
+        
+        Arrow_waypoints.target = car.transform;
 
     }
 
@@ -41,6 +47,7 @@ public class ShowQuest : MonoBehaviour
             questUI.SetActive(true);
             audio.PlayOneShot(sound, 5);
             alreadyPlayed = true;
+            questUIBackground.SetActive(true);
         }
 
 
@@ -50,30 +57,30 @@ public class ShowQuest : MonoBehaviour
      if(other.gameObject.tag =="Player" )
         {
             //questUI.SetActive(false);
+            if(!isTriggerExit)
             collision = 1;
             GlobalScore.currentScore++;
+            isTriggerExit = true;
         }
      
     }
 
     private void Update()
     {
-        if (GlobalScore.currentScore == 0)
-        {
-            Arrow_waypoints.target = car.transform;
-        }
-            if (GlobalScore.currentScore == 1)
+        
+        if (GlobalScore.currentScore == 1)
         { questUI.GetComponent<TMP_Text>().text = " check the tower for more information";
             Arrow_waypoints.target = tower.transform; }
         if (GlobalScore.currentScore == 2)
         { questUI.GetComponent<TMP_Text>().text = " you have to finish 3 quest to reveal your tires "; }
         if (GlobalScore.currentScore == 3)
         { questUI.GetComponent<TMP_Text>().text = " clear the trashbags in parks ";
-              
+            arrowObject.SetActive(false);
         }
         if (GlobalScore.currentScore == 9)
         { questUI.GetComponent<TMP_Text>().text = " find the giant lollypop ";
             Arrow_waypoints.target = lollypop.transform;
+            arrowObject.SetActive(true);
         }
         if (GlobalScore.currentScore == 10)
         { questUI.GetComponent<TMP_Text>().text = " DANCE !! ";
@@ -85,11 +92,14 @@ public class ShowQuest : MonoBehaviour
             tire2.SetActive(true);
             tire3.SetActive(true);
             tire4.SetActive(true);
-            questUI.GetComponent<TMP_Text>().text = "find your tires on top of the subway entrances "; }
+            questUI.GetComponent<TMP_Text>().text = "find your tires on top of the subway entrances ";
+            arrowObject.SetActive(false);
+        }
 
         if (GlobalScore.currentScore == 15)
         { questUI.GetComponent<TMP_Text>().text = " find a mechanic";
             Arrow_waypoints.target = mechanic.transform;
+            arrowObject.SetActive(true);
         }
         if (GlobalScore.currentScore == 16)
         { questUI.GetComponent<TMP_Text>().text = " talk to the mechanic"; }
