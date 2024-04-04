@@ -9,7 +9,6 @@ public class InteractableGarbageMan : MonoBehaviour, IInteractable
     public GameObject questUI;
     public AudioSource audio;
     public AudioSource audio1;
-    public GameObject car;
     private bool isTriggeredEnter = false;
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;

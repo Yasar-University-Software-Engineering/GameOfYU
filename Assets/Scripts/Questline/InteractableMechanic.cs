@@ -12,9 +12,12 @@ public class InteractableMechanic : MonoBehaviour, IInteractable
     public AudioSource audio1;
     public GameObject car;
     private bool isTriggeredEnter = false;
-    public GameObject dialogueBox;
+    
+
     private bool isInteracted = false;
     public string InteractionPrompt => _prompt;
+    private float audiolength;
+
 
 
 
@@ -22,10 +25,10 @@ public class InteractableMechanic : MonoBehaviour, IInteractable
     {
         if (!isTriggeredEnter)
         {
-            float audioLength = audio.clip.length;
+           
             GlobalScore.currentScore += 1;
             audio.Play();
-            audio1.PlayDelayed(audioLength);
+            
             isTriggeredEnter = true;
         }
 
@@ -37,7 +40,9 @@ public class InteractableMechanic : MonoBehaviour, IInteractable
        
             if (!isInteracted)
             {
-                transform.SetPositionAndRotation(new Vector3(car.transform.position.x, 0.85561f, car.transform.position.z + 5), Quaternion.identity);
+                audio1.Play();
+            //transform.SetPositionAndRotation(new Vector3(car.transform.position.x, 0, car.transform.position.z + 5), Quaternion.identity);
+                audiolength = audio1.clip.length;
                 GlobalScore.currentScore += 1;
 
                 Transform parentTransform = car.transform;
@@ -50,10 +55,17 @@ public class InteractableMechanic : MonoBehaviour, IInteractable
                 }
                 car.transform.SetPositionAndRotation(new Vector3(car.transform.position.x, car.transform.position.y + 0.2f, car.transform.position.z), Quaternion.identity);
                 isInteracted = true;
+                Invoke("Teleport", audiolength);
             }
 
           return true;
         }
+
+    private void Teleport()
+    {
+
+        transform.SetPositionAndRotation(new Vector3(car.transform.position.x, 0, car.transform.position.z + 5), Quaternion.identity);
+    }
         
     }
 

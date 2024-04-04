@@ -10,8 +10,8 @@ public class ShowQuest : MonoBehaviour
     public GameObject questUI;
     public GameObject questUIBackground;
     private int collision = 0;
-    public AudioClip sound;
-    private AudioSource audio;
+   // public AudioClip sound;
+    public AudioSource audio;
     public static int currentScore;
     public GameObject tire1;
     public GameObject tire2;
@@ -21,19 +21,19 @@ public class ShowQuest : MonoBehaviour
     public GameObject tower;
     public GameObject car;
     public GameObject trashbags;
-    public GameObject lollypop;
+    public GameObject garbage_man;
     public GameObject mechanic;
     private bool isTriggerExit;
     public GameObject arrowObject;
+    private bool isAudioPlayed=false;
 
 
-
-    private bool alreadyPlayed = false;
+    
 
     void Start()
     {
         questUI.GetComponent<TMP_Text>().text = "find the missing tires";
-        audio = GetComponent<AudioSource>();
+        //audio = GetComponent<AudioSource>();
         questUI.SetActive(false);
         
         Arrow_waypoints.target = car.transform;
@@ -42,23 +42,23 @@ public class ShowQuest : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-       // if (other.tag =="Player" && questUI.activeSelf && collision == 0 && alreadyPlayed == false)
-        {
-            questUI.SetActive(true);
-            audio.PlayOneShot(sound, 5);
-            alreadyPlayed = true;
-            questUIBackground.SetActive(true);
+        questUI.SetActive(true);
+        questUIBackground.SetActive(true);
+       
+        {  if(!isAudioPlayed)   
+            audio.Play();
+            isAudioPlayed = true;
         }
-
+        
 
     }
     void OnTriggerExit(Collider other)
     {
-     if(other.gameObject.tag =="Player" )
+        //if(other.gameObject.tag =="Player" )
         {
-            //questUI.SetActive(false);
+            
             if(!isTriggerExit)
-            collision = 1;
+            
             GlobalScore.currentScore++;
             isTriggerExit = true;
         }
@@ -79,7 +79,7 @@ public class ShowQuest : MonoBehaviour
         }
         if (GlobalScore.currentScore == 9)
         { questUI.GetComponent<TMP_Text>().text = " bring all the trash to the garbage man ";
-            Arrow_waypoints.target = lollypop.transform;
+            Arrow_waypoints.target = garbage_man.transform;
             arrowObject.SetActive(true);
         }
         if (GlobalScore.currentScore == 10)
