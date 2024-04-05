@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Build/Level000.unity
     guid: 1ad797580335fc34fae904cb5ad94945
   - enabled: 1
-    path: Assets/Scenes/DenizLevels/Level001.unity
-    guid: 35299a6a99d6dfe4bb709527ba95aab0
+    path: Assets/Scenes/Build/Level001.unity
+    guid: bfdf769578d9317458e107727cd0d756
   - enabled: 1
     path: Assets/Scenes/Build/Level002.unity
     guid: e120d0e37ab427a4cb1c20085b85c472
