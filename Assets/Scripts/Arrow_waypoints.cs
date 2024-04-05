@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
+//using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class Arrow_waypoints : MonoBehaviour
 {
     public static Transform target;
-    public FloatType arrowspeed;
+    public float arrowspeed;
 
     // Start is called before the first frame update
     void Start()
