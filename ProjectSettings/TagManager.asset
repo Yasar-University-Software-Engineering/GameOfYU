@@ -16,8 +16,8 @@ TagManager:
   - bcx
   - Interactable
   - aicharacter
-  - 
-  - 
+  - building
+  - walkable
   - 
   - 
   - 
