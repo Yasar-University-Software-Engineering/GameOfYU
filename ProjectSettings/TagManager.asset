@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - FlythroughCam
+  - CinemachineTarget
+  - Character
+  - Car
   layers:
   - Default
   - TransparentFX
