@@ -17,7 +17,6 @@ public class ShowQuest : MonoBehaviour
     public GameObject tire2;
     public GameObject tire3;
     public GameObject tire4;
-    public GameObject teleporter;
     public GameObject tower;
     public GameObject car;
     public GameObject trashbags;
@@ -26,6 +25,7 @@ public class ShowQuest : MonoBehaviour
     private bool isTriggerExit;
     public GameObject arrowObject;
     private bool isAudioPlayed=false;
+    public GameObject levelEnd;
 
 
     
@@ -105,13 +105,16 @@ public class ShowQuest : MonoBehaviour
         { questUI.GetComponent<TMP_Text>().text = " talk to the mechanic"; }
         if (GlobalScore.currentScore == 17)
         {
-            teleporter.SetActive(true);
+            //teleporter.SetActive(true);
             questUI.GetComponent<TMP_Text>().text = "drive your car to the ferry";
             Arrow_waypoints.target = car.transform;
+            levelEnd.SetActive(true);
         }
 
 
     }
+
+
 
 
 }
