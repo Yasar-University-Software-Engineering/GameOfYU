@@ -148,6 +148,15 @@ namespace Gamekit3D
 
             meleeWeapon.SetOwner(gameObject);
 
+            foreach (Animator a in GetComponentsInChildren<Animator>())
+            {
+                if (a != m_Animator)
+                {
+                    m_Animator.avatar = a.avatar;
+                    a.enabled = false;
+                }
+            }
+
             s_Instance = this;
         }
 
@@ -320,6 +329,28 @@ namespace Gamekit3D
             Vector3 localMovementDirection = new Vector3(moveInput.x, 0f, moveInput.y).normalized;
             
             Vector3 forward = Quaternion.Euler(0f, cameraSettings.Current.m_XAxis.Value, 0f) * Vector3.forward;
+
+            if (m_IsGrounded && IsMoveInput)
+            {
+                float Correction = -0.3f;
+                if (forward.z > 0)
+                {
+                    forward.x += Correction;
+                }
+                else
+                {
+                    forward.x -= Correction;
+                }
+                if (forward.x > 0)
+                {
+                    forward.z -= Correction;
+                }
+                else
+                {
+                    forward.z += Correction;
+                }
+            }
+
             forward.y = 0f;
             forward.Normalize();
 
